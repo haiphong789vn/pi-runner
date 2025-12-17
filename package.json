@@ -1,7 +1,7 @@
 {
     "name": "browserstack-shopee-video-test",
     "version": "1.0.0",
-    "description": "BrowserStack Automate test for Shopee video play functionality",
+    "description": "BrowserStack Automate test for video play functionality",
     "main": "test-video-play.js",
     "scripts": {
         "extract": "node extract-links.js",
