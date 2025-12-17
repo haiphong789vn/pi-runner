@@ -1,0 +1,53 @@
+name: BrowserStack Shopee Video Test
+
+on:
+  # Run every hour
+  schedule:
+    - cron: '0 * * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Number of videos per batch'
+        required: false
+        default: '5'
+        type: string
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  browserstack-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: browserstack-tests/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: browserstack-tests
+        run: npm install
+      
+      - name: Run BrowserStack tests
+        working-directory: browserstack-tests
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: node test-video-play.js
+      
+      - name: Print completion message
+        if: always()
+        run: |
+          echo "=========================================="
+          echo "Test batch completed at $(date)"
+          echo "Next run scheduled in 1 hour"
+          echo "=========================================="

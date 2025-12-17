@@ -1,0 +1,17 @@
+{
+    "name": "browserstack-shopee-video-test",
+    "version": "1.0.0",
+    "description": "BrowserStack Automate test for Shopee video play functionality",
+    "main": "test-video-play.js",
+    "scripts": {
+        "extract": "node extract-links.js",
+        "test": "node test-video-play.js"
+    },
+    "dependencies": {
+        "pg": "^8.13.1",
+        "selenium-webdriver": "^4.25.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
