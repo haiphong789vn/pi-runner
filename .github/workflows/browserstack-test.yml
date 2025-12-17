@@ -30,14 +30,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: browserstack-tests/package-lock.json
       
       - name: Install dependencies
-        working-directory: browserstack-tests
         run: npm install
       
       - name: Run BrowserStack tests
-        working-directory: browserstack-tests
         env:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
