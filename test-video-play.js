@@ -208,7 +208,7 @@ async function testVideoPlay(driver, videoRecord, index, deviceName) {
  */
 async function runTests() {
     console.log('========================================');
-    console.log('BrowserStack Shopee Video Test');
+    console.log('BrowserStack Video Test');
     console.log('========================================\n');
 
     // Validate environment variables
