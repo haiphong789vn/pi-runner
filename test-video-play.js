@@ -120,7 +120,7 @@ async function testVideoPlay(driver, videoRecord, index, deviceName) {
     };
 
     try {
-        console.log(`\n[${index}] Testing: ${videoRecord.url}`);
+        
         console.log(`    Current views: ${videoRecord.view_count}`);
 
         // Navigate to the video URL
