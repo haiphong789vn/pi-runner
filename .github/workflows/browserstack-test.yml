@@ -1,4 +1,4 @@
-name: BrowserStack Shopee Video Test
+name: BrowserStack Video Test
 
 on:
   # Run every hour
