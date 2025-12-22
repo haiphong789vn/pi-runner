@@ -3,7 +3,6 @@ name: BrowserStack Video Test
 on:
   # Run every hour
   schedule:
-    - cron: '0 * * * *'
   
   # Allow manual trigger
   workflow_dispatch:
